@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Diaryapplication</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_insert_schedule">InsertScheduleActivity</string>
+    <string name="title_activity_schedule_list_item">ScheduleListItem</string>
+</resources>
