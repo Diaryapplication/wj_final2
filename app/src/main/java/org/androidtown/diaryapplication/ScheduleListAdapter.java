@@ -47,8 +47,8 @@ public class ScheduleListAdapter extends BaseAdapter {
             itemView = (ScheduleListItemView) convertView;
         }
 
-        itemView.setContents(0, ((String) mItems.get(position).getData(1)));
-        itemView.setContents(1, ((String) mItems.get(position).getData(2)));
+        itemView.setContents(0, ((String) mItems.get(position).getData(0)));
+        itemView.setContents(1, ((String) mItems.get(position).getData(1)));
 
         return itemView;
 

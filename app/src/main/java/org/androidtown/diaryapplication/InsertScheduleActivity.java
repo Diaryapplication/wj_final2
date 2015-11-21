@@ -23,17 +23,17 @@ import java.util.Date;
 
 public class InsertScheduleActivity extends Activity {
 
-    public static final String TAG = "AddActivity";
+    public static final String TAG = "InsertScheduleActivity";
 
     EditText mScheduleEdit;
 
     String mScheduleMode;
     String mScheduleId;
     String mScheduleDate;
-    String mScheduleTime;
+   // String mScheduleTime;
 
     String mDateStr;
-    String mTimeStr;
+    //String mTimeStr;
     String mScheduleStr;
 
     EditText edit_name;
@@ -45,7 +45,6 @@ public class InsertScheduleActivity extends Activity {
     Button deleteBtn;
     Button addTimeBtn;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_schedule);
@@ -81,7 +80,7 @@ public class InsertScheduleActivity extends Activity {
     public void processIntent(Intent intent) {
         mScheduleId = intent.getStringExtra(BasicInfo.KEY_MEMO_ID);
         mScheduleDate = intent.getStringExtra(BasicInfo.KEY_MEMO_DATE);
-        mScheduleTime = intent.getStringExtra(BasicInfo.KEY_MEMO_TIME);
+        //mScheduleTime = intent.getStringExtra(BasicInfo.KEY_MEMO_TIME);
         String curScheduleText = intent.getStringExtra(BasicInfo.KEY_MEMO_TEXT);
         mScheduleEdit.setText(curScheduleText);
 
@@ -121,11 +120,10 @@ public class InsertScheduleActivity extends Activity {
         String SQL = null;
 
         SQL = "insert into " + ScheduleDatabase.TABLE_SCHEDULE +
-                "(INPUT_DATE, INPUT_TIME, CONTENT_TEXT) values(" +
-                "DATE('" + mDateStr + "'), " +
-                "TIME('" + mTimeStr + "'), " +
+                "(INPUT_DATE, CONTENT_TEXT) values(" +
+                "DATETIME('" + mDateStr + "'), " +
+                //"TIME('" + mTimeStr + "'), " +
                 "'"+ mScheduleStr + "')";
-        // Stage3 added
 
         Log.d(TAG, "SQL : " + SQL);
         if (MainActivity.mDatabase != null) {
@@ -148,8 +146,8 @@ public class InsertScheduleActivity extends Activity {
         String SQL = null;
         // update memo info
         SQL = "update " + ScheduleDatabase.TABLE_SCHEDULE + " set " +
-                " INPUT_DATE = DATE('" + mDateStr + "'), " +
-                " INPUT_TIME = TIME('" + mTimeStr + "'), " +
+                " INPUT_DATE = DATETIME('" + mDateStr + "'), " +
+               // " INPUT_TIME = TIME('" + mTimeStr + "'), " +
                 " CONTENT_TEXT = '" + mScheduleStr + "'" +
                 " where _id = '" + mScheduleId + "'";
 
@@ -386,22 +384,21 @@ public class InsertScheduleActivity extends Activity {
         String insertDateStr = addDateBtn.getText().toString();
         String insertTimeStr = addTimeBtn.getText().toString();
 
-        String srcDateStr = insertDateStr;
-        String srcTimeStr = insertTimeStr;
-        Log.d(TAG, "source date string : " + srcDateStr +" "+srcTimeStr);
+        String srcDateStr = insertDateStr + " " + insertTimeStr;
+        Log.d(TAG, "source date string : " + srcDateStr);
 
         try {
             if (BasicInfo.language.equals("ko")) {
-                Date insertDate = BasicInfo.dateDayNameFormat.parse(srcDateStr);
-                Date insertTime = BasicInfo.dateTimeNameFormat.parse(srcTimeStr);
-                mDateStr = BasicInfo.dateDayFormat.format(insertDate);
-                mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
+                Date insertDate = BasicInfo.dateNameFormat.parse(srcDateStr);
+              //  Date insertTime = BasicInfo.dateTimeNameFormat.parse(srcTimeStr);
+                mDateStr = BasicInfo.dateFormat.format(insertDate);
+               // mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
 
             } else {
-                Date insertDate = BasicInfo.dateDayFormat.parse(srcDateStr);
-                Date insertTime = BasicInfo.dateTimeFormat.parse(srcTimeStr);
-                mDateStr = BasicInfo.dateDayFormat.format(insertDate);
-                mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
+                Date insertDate = BasicInfo.dateNameFormat3.parse(srcDateStr);
+               // Date insertTime = BasicInfo.dateTimeFormat.parse(srcTimeStr);
+                mDateStr = BasicInfo.dateFormat.format(insertDate);
+              //  mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
             }
         } catch(ParseException ex) {
             Log.e(TAG, "Exception in parsing date : " + insertDateStr);
@@ -410,7 +407,7 @@ public class InsertScheduleActivity extends Activity {
 
         mScheduleStr = mScheduleEdit.getText().toString();
 
-        // if handwriting is available
+
         if ( (mScheduleMode != null && (mScheduleMode.equals(BasicInfo.MODE_MODIFY)  || mScheduleMode.equals(BasicInfo.MODE_VIEW)))) {
 
         } else {

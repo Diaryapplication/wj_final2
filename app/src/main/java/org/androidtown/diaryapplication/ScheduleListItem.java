@@ -13,13 +13,13 @@ public class ScheduleListItem  {
     private String mId;
 
 
-    public ScheduleListItem(String scheduleId, String scheduleDate, String scheduleTime, String scheduleText)
+    public ScheduleListItem(String scheduleId, String scheduleDate, String scheduleText)
     {
         mId = scheduleId;
-        mData = new String[3];
+        mData = new String[2];
         mData[0] = scheduleDate;
-        mData[1] = scheduleTime;
-        mData[2] = scheduleText;
+       // mData[1] = scheduleTime;
+        mData[1] = scheduleText;
 
     }
 

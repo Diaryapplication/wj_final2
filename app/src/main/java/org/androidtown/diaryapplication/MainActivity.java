@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,12 +32,6 @@ public class MainActivity extends Activity {
     Calendar mCalendar = Calendar.getInstance();
     TextView dateBtn;
 
-
-    /**
-     * 데이터베이스 인스턴스
-     */
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -59,7 +54,7 @@ public class MainActivity extends Activity {
         mScheduleListView = (ListView)findViewById(R.id.scheduleList);
         mScheduleListAdapter = new ScheduleListAdapter(this);
         mScheduleListView.setAdapter(mScheduleListAdapter);
-        mScheduleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mScheduleListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 viewMemo(position);
             }
@@ -117,13 +112,14 @@ public class MainActivity extends Activity {
 
     public int loadScheduleListData() {
 
-        String SQL = "select _id, INPUT_TIME, CONTENT_TEXT  from SCHEDULE order by INPUT_TIME desc ";
+        String SQL = "select _id, INPUT_DATE, CONTENT_TEXT  from SCHEDULE order by INPUT_DATE desc ";
 
         int recordCount = -1;
 
         if (MainActivity.mDatabase != null) {
             Cursor outCursor = MainActivity.mDatabase.rawQuery(SQL);
-             recordCount = outCursor.getCount();
+
+            recordCount = outCursor.getCount();
             Log.d(TAG, "cursor count : " + recordCount + "\n");
 
             mScheduleListAdapter.clear();
@@ -133,13 +129,29 @@ public class MainActivity extends Activity {
 
                 String scheduleId = outCursor.getString(0);
 
-                String dateStr = null;
+                String dateStr = outCursor.getString(1);
+                if (dateStr != null && dateStr.length() > 10) {
 
-                String timeStr = outCursor.getString(1);
+                    try {
+                        Date inDate = BasicInfo.dateTimeFormat.parse(dateStr);
+
+                        if (BasicInfo.language.equals("ko")) {
+                            dateStr = BasicInfo.dateTimeFormat.format(inDate);
+                        } else {
+                            dateStr = BasicInfo.dateTimeFormat.format(inDate);
+                        }
+                    } catch(Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    dateStr = "";
+                }
+/*
+                String timeStr = outCursor.getString(2);
                 if (timeStr != null && timeStr.length() > 10) {
 
                     try {
-                        Date inTime = BasicInfo.dateTimeFormat.parse(timeStr);
+                        String inTime = BasicInfo.dateTimeFormat.parse(timeStr);
 
                         if (BasicInfo.language.equals("ko")) {
                             timeStr = BasicInfo.dateTimeFormat.format(inTime);
@@ -151,12 +163,12 @@ public class MainActivity extends Activity {
                     }
                 } else {
                     timeStr = "";
-                }
+                }*/
 
                 String scheduleStr = outCursor.getString(2);
 
 
-                mScheduleListAdapter.addItem(new ScheduleListItem(scheduleId, dateStr, timeStr, scheduleStr));
+                mScheduleListAdapter.addItem(new ScheduleListItem(scheduleId, dateStr, scheduleStr));
             }
 
             outCursor.close();
@@ -176,8 +188,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
         intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
         intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_TIME, item.getData(1));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(2));
+        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
+        //intent.putExtra(BasicInfo.KEY_MEMO_TIME, item.getData(1));
+        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
 
         startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
     }
