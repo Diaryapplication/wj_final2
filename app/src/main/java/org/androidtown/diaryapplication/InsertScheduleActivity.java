@@ -30,10 +30,8 @@ public class InsertScheduleActivity extends Activity {
     String mScheduleMode;
     String mScheduleId;
     String mScheduleDate;
-   // String mScheduleTime;
 
     String mDateStr;
-    //String mTimeStr;
     String mScheduleStr;
 
     EditText edit_name;
@@ -80,7 +78,6 @@ public class InsertScheduleActivity extends Activity {
     public void processIntent(Intent intent) {
         mScheduleId = intent.getStringExtra(BasicInfo.KEY_MEMO_ID);
         mScheduleDate = intent.getStringExtra(BasicInfo.KEY_MEMO_DATE);
-        //mScheduleTime = intent.getStringExtra(BasicInfo.KEY_MEMO_TIME);
         String curScheduleText = intent.getStringExtra(BasicInfo.KEY_MEMO_TEXT);
         mScheduleEdit.setText(curScheduleText);
 
@@ -122,7 +119,6 @@ public class InsertScheduleActivity extends Activity {
         SQL = "insert into " + ScheduleDatabase.TABLE_SCHEDULE +
                 "(INPUT_DATE, CONTENT_TEXT) values(" +
                 "DATETIME('" + mDateStr + "'), " +
-                //"TIME('" + mTimeStr + "'), " +
                 "'"+ mScheduleStr + "')";
 
         Log.d(TAG, "SQL : " + SQL);
@@ -147,7 +143,6 @@ public class InsertScheduleActivity extends Activity {
         // update memo info
         SQL = "update " + ScheduleDatabase.TABLE_SCHEDULE + " set " +
                 " INPUT_DATE = DATETIME('" + mDateStr + "'), " +
-               // " INPUT_TIME = TIME('" + mTimeStr + "'), " +
                 " CONTENT_TEXT = '" + mScheduleStr + "'" +
                 " where _id = '" + mScheduleId + "'";
 
@@ -170,11 +165,9 @@ public class InsertScheduleActivity extends Activity {
                 Calendar calendar = Calendar.getInstance();
                 Date date = new Date();
                 try {
-                    if (BasicInfo.language.equals("ko")) {
-                        date = BasicInfo.dateDayNameFormat.parse(mDateStr);
-                    } else {
-                        date = BasicInfo.dateDayFormat.parse(mDateStr);
-                    }
+
+                    date = BasicInfo.dateDayFormat.parse(mDateStr);
+
                 } catch(Exception ex) {
                     Log.d(TAG, "Exception in parsing date : " + date);
                 }
@@ -199,11 +192,9 @@ public class InsertScheduleActivity extends Activity {
                 Calendar calendar = Calendar.getInstance();
                 Date date = new Date();
                 try {
-                    if (BasicInfo.language.equals("ko")) {
-                        date = BasicInfo.dateTimeNameFormat.parse(mTimeStr);
-                    } else {
-                        date = BasicInfo.dateTimeFormat.parse(mTimeStr);
-                    }
+
+                    date = BasicInfo.dateTimeFormat.parse(mTimeStr);
+
                 } catch(Exception ex) {
                     Log.d(TAG, "Exception in parsing date : " + date);
                 }
@@ -238,11 +229,9 @@ public class InsertScheduleActivity extends Activity {
             dayStr = "0" + dayStr;
         }
 
-        if (BasicInfo.language.equals("ko")) {
-            addDateBtn.setText(year + "년 " + monthStr + "월 " + dayStr + "일");
-        } else {
-            addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
-        }
+
+        addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
+
 
         int hourOfDay = mCalendar.get(Calendar.HOUR_OF_DAY);
         int minute = mCalendar.get(Calendar.MINUTE);
@@ -257,25 +246,20 @@ public class InsertScheduleActivity extends Activity {
             minuteStr = "0" + minuteStr;
         }
 
-        if (BasicInfo.language.equals("ko")) {
-            addTimeBtn.setText(hourStr + "시 " + minuteStr + "분");
-        } else {
-            addTimeBtn.setText(hourStr + ":" + minuteStr);
-        }
+        addTimeBtn.setText(hourStr + ":" + minuteStr);
+
 
     }
 
 
     private void setScheduleDate(String dateStr) {
-        Log.d(TAG, "setMemoDate() called : " + dateStr);
+        Log.d(TAG, "setScheduleDate() called : " + dateStr);
 
         Date date = new Date();
         try {
-            if (BasicInfo.language.equals("ko")) {
-                date = BasicInfo.dateNameFormat2.parse(dateStr);
-            } else {
-                date = BasicInfo.dateNameFormat3.parse(dateStr);
-            }
+
+            date = BasicInfo.dateNameFormat3.parse(dateStr);
+
         } catch(Exception ex) {
             Log.d(TAG, "Exception in parsing date : " + dateStr);
         }
@@ -297,11 +281,9 @@ public class InsertScheduleActivity extends Activity {
             dayStr = "0" + dayStr;
         }
 
-        if (BasicInfo.language.equals("ko")) {
-            addDateBtn.setText(year + "년 " + monthStr + "월 " + dayStr + "일");
-        } else {
-            addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
-        }
+
+        addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
+
 
         int hourOfDay = mCalendar.get(Calendar.HOUR_OF_DAY);
         int minute = mCalendar.get(Calendar.MINUTE);
@@ -316,11 +298,9 @@ public class InsertScheduleActivity extends Activity {
             minuteStr = "0" + minuteStr;
         }
 
-        if (BasicInfo.language.equals("ko")) {
-            addTimeBtn.setText(hourStr + "시 " + minuteStr + "분");
-        } else {
-            addTimeBtn.setText(hourStr + ":" + minuteStr);
-        }
+
+        addTimeBtn.setText(hourStr + ":" + minuteStr);
+
 
     }
 
@@ -343,11 +323,9 @@ public class InsertScheduleActivity extends Activity {
             }
 
 
-            if (BasicInfo.language.equals("ko")) {
-                addDateBtn.setText(year + "년 " + monthStr + "월 " + dayStr + "일");
-            } else {
-                addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
-            }
+
+            addDateBtn.setText(year + "-" + monthStr + "-" + dayStr);
+
         }
     };
 
@@ -369,11 +347,9 @@ public class InsertScheduleActivity extends Activity {
                 minuteStr = "0" + minuteStr;
             }
 
-            if (BasicInfo.language.equals("ko")) {
-                addTimeBtn.setText(hourStr + "시 " + minuteStr + "분");
-            } else {
-                addTimeBtn.setText(hourStr + ":" + minuteStr);
-            }
+
+            addTimeBtn.setText(hourStr + ":" + minuteStr);
+
         }
     };
 
@@ -388,18 +364,10 @@ public class InsertScheduleActivity extends Activity {
         Log.d(TAG, "source date string : " + srcDateStr);
 
         try {
-            if (BasicInfo.language.equals("ko")) {
-                Date insertDate = BasicInfo.dateNameFormat.parse(srcDateStr);
-              //  Date insertTime = BasicInfo.dateTimeNameFormat.parse(srcTimeStr);
-                mDateStr = BasicInfo.dateFormat.format(insertDate);
-               // mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
 
-            } else {
-                Date insertDate = BasicInfo.dateNameFormat3.parse(srcDateStr);
-               // Date insertTime = BasicInfo.dateTimeFormat.parse(srcTimeStr);
-                mDateStr = BasicInfo.dateFormat.format(insertDate);
-              //  mTimeStr = BasicInfo.dateTimeFormat.format(insertTime);
-            }
+            Date insertDate = BasicInfo.dateNameFormat3.parse(srcDateStr);
+            mDateStr = BasicInfo.dateFormat.format(insertDate);
+
         } catch(ParseException ex) {
             Log.e(TAG, "Exception in parsing date : " + insertDateStr);
         }
@@ -441,7 +409,7 @@ public class InsertScheduleActivity extends Activity {
             case BasicInfo.CONFIRM_DELETE:
                 builder = new AlertDialog.Builder(this);
                 builder.setTitle("Schedule");
-                builder.setMessage("Do you really want to delete this schedule?");
+                builder.setMessage("정말 지우시겠습니까?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         deleteMemo();
@@ -469,7 +437,7 @@ public class InsertScheduleActivity extends Activity {
 
 
         // delete memo record
-        Log.d(TAG, "deleting previous memo record : " + mScheduleId);
+        Log.d(TAG, "deleting previous schedule record : " + mScheduleId);
         String SQL = "delete from " + ScheduleDatabase.TABLE_SCHEDULE +
                 " where _id = '" + mScheduleId + "'";
         Log.d(TAG, "SQL : " + SQL);

@@ -19,6 +19,7 @@ import org.androidtown.diaryapplication.db.ScheduleDatabase;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
 
@@ -35,6 +36,10 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Locale curLocale = getResources().getConfiguration().locale;
+        BasicInfo.language = curLocale.getLanguage();
+        Log.d(TAG, "current language : " + BasicInfo.language);
 
         if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             Toast.makeText(this,"NO SDCARD", Toast.LENGTH_LONG).show();
@@ -146,24 +151,6 @@ public class MainActivity extends Activity {
                 } else {
                     dateStr = "";
                 }
-/*
-                String timeStr = outCursor.getString(2);
-                if (timeStr != null && timeStr.length() > 10) {
-
-                    try {
-                        String inTime = BasicInfo.dateTimeFormat.parse(timeStr);
-
-                        if (BasicInfo.language.equals("ko")) {
-                            timeStr = BasicInfo.dateTimeFormat.format(inTime);
-                        } else {
-                            timeStr = BasicInfo.dateTimeFormat.format(inTime);
-                        }
-                    } catch(Exception ex) {
-                        ex.printStackTrace();
-                    }
-                } else {
-                    timeStr = "";
-                }*/
 
                 String scheduleStr = outCursor.getString(2);
 
@@ -189,7 +176,6 @@ public class MainActivity extends Activity {
         intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
         intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
         intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        //intent.putExtra(BasicInfo.KEY_MEMO_TIME, item.getData(1));
         intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
 
         startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
@@ -219,7 +205,7 @@ public class MainActivity extends Activity {
         int monthOfYear = mCalendar.get(Calendar.MONTH);
         int dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH);
 
-        dateBtn.setText(year + "년 " + (monthOfYear + 1) + "월 " + dayOfMonth + "일");
+        dateBtn.setText(year + "- " + (monthOfYear + 1) + "- " + dayOfMonth);
 
     }
 

@@ -1,14 +1,22 @@
 package org.androidtown.diaryapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by SOYOUNG on 2015-11-15.
  */
 public class ScheduleListItemView extends LinearLayout {
+
+    Calendar mCalendar = Calendar.getInstance();
+
+    public static final String TAG = "ScheduleListItemView";
 
     private TextView timeText;
 
@@ -29,7 +37,33 @@ public class ScheduleListItemView extends LinearLayout {
     public void setContents(int index, String data){
 
         if(index == 0) {
-            timeText.setText(data);
+
+            Log.d(TAG, "setMemoDate() called : " + data);
+
+            Date date = new Date();
+            try {
+                    date = BasicInfo.dateNameFormat3.parse(data);
+            } catch(Exception ex) {
+                Log.d(TAG, "Exception in parsing date : " + data);
+            }
+
+            mCalendar.setTime(date);
+
+            int hourOfDay = mCalendar.get(Calendar.HOUR_OF_DAY);
+            int minute = mCalendar.get(Calendar.MINUTE);
+
+            String hourStr = String.valueOf(hourOfDay);
+            if (hourOfDay < 10) {
+                hourStr = "0" + hourStr;
+            }
+
+            String minuteStr = String.valueOf(minute);
+            if (minute < 10) {
+                minuteStr = "0" + minuteStr;
+            }
+
+            timeText.setText(hourStr + ":" + minuteStr);
+
         }
         else if(index==1){
             itemText.setText(data);

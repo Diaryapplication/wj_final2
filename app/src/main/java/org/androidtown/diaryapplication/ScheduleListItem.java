@@ -18,7 +18,6 @@ public class ScheduleListItem  {
         mId = scheduleId;
         mData = new String[2];
         mData[0] = scheduleDate;
-       // mData[1] = scheduleTime;
         mData[1] = scheduleText;
 
     }

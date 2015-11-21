@@ -140,7 +140,6 @@ public class ScheduleDatabase {
             String CREATE_SQL = "create table " + TABLE_SCHEDULE + "("
                     + "  _id INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT, "
                     + "  INPUT_DATE TIMESTAMP, "
-                   // + "  INPUT_TIME TIMESTAMP, "
                     + "  CONTENT_TEXT TEXT DEFAULT '' "
                     + ")";
             try {
