@@ -78,47 +78,50 @@ public class MainActivity extends Activity {
             }
         });
 
-        setCalendar();
+        init();
 
-        // 이전 월로 넘어가는 이벤트 처리
+        // 이전 일로 넘어가는 이벤트 처리
         Button datePrevious = (Button) findViewById(R.id.preDate);
         datePrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-              //  monthViewAdapter.setPreviousMonth();
-               // monthViewAdapter.notifyDataSetChanged();
 
+                mCalendar.add(Calendar.DATE,-1);
                 setDateText();
+                loadScheduleListData();
             }
         });
 
-        // 다음 월로 넘어가는 이벤트 처리
+        // 다음 일로 넘어가는 이벤트 처리
         Button dateNext = (Button) findViewById(R.id.nextDate);
         dateNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               // monthViewAdapter.setNextMonth();
-               // monthViewAdapter.notifyDataSetChanged();
-
+                mCalendar.add(Calendar.DATE,1);
                 setDateText();
+                loadScheduleListData();
             }
         });
     }
     private void setDateText() {
-        //curYear = monthViewAdapter.getCurYear();
-        //curMonth = monthViewAdapter.getCurMonth();
-        //curDay =
-        //dateText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
+        dateText = (TextView)findViewById(R.id.dateText);
+        curYear = mCalendar.get(Calendar.YEAR);
+        curMonth = mCalendar.get(Calendar.MONTH);
+        curDay = mCalendar.get(Calendar.DATE);
+        dateText.setText(curYear + "-" + (curMonth + 1) + "-" + curDay);
+
     }
-    private void setCalendar(){
+    private void init(){
 
         dateText = (TextView)findViewById(R.id.dateText);
         Date curDate = new Date();
         mCalendar.setTime(curDate);
 
-        int year = mCalendar.get(Calendar.YEAR);
-        int monthOfYear = mCalendar.get(Calendar.MONTH);
-        int dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH);
+        int curYear = mCalendar.get(Calendar.YEAR);
+        int curMonth = mCalendar.get(Calendar.MONTH);
+        int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+        dateText.setText(curYear + "-" + (curMonth + 1) + "-" + curDay);
 
-        dateText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
 
     }
 
