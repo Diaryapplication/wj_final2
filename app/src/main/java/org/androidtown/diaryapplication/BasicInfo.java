@@ -45,13 +45,9 @@ public class BasicInfo {
 
 
     //========== 날짜 포맷  ==========//
-    public static SimpleDateFormat dateDayNameFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
     public static SimpleDateFormat dateDayFormat = new SimpleDateFormat("yyyy-MM-dd");
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public static SimpleDateFormat dateNameFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
-    public static SimpleDateFormat dateNameFormat2 = new SimpleDateFormat("yyyy-MM-dd HH시 mm분");
     public static SimpleDateFormat dateNameFormat3 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    public static SimpleDateFormat dateTimeNameFormat = new SimpleDateFormat("HH시 mm분");
     public static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("HH:mm");
 
 

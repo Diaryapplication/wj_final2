@@ -31,7 +31,10 @@ public class MainActivity extends Activity {
     public static ScheduleDatabase mDatabase = null;
 
     Calendar mCalendar = Calendar.getInstance();
-    TextView dateBtn;
+    TextView dateText;
+    int curYear;
+    int curMonth;
+    int curDay;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +79,49 @@ public class MainActivity extends Activity {
         });
 
         setCalendar();
+
+        // 이전 월로 넘어가는 이벤트 처리
+        Button datePrevious = (Button) findViewById(R.id.preDate);
+        datePrevious.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+              //  monthViewAdapter.setPreviousMonth();
+               // monthViewAdapter.notifyDataSetChanged();
+
+                setDateText();
+            }
+        });
+
+        // 다음 월로 넘어가는 이벤트 처리
+        Button dateNext = (Button) findViewById(R.id.nextDate);
+        dateNext.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               // monthViewAdapter.setNextMonth();
+               // monthViewAdapter.notifyDataSetChanged();
+
+                setDateText();
+            }
+        });
     }
+    private void setDateText() {
+        //curYear = monthViewAdapter.getCurYear();
+        //curMonth = monthViewAdapter.getCurMonth();
+        //curDay =
+        //dateText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+    }
+    private void setCalendar(){
+
+        dateText = (TextView)findViewById(R.id.dateText);
+        Date curDate = new Date();
+        mCalendar.setTime(curDate);
+
+        int year = mCalendar.get(Calendar.YEAR);
+        int monthOfYear = mCalendar.get(Calendar.MONTH);
+        int dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH);
+
+        dateText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
+    }
+
 
     protected void onStart() {
 
@@ -117,7 +162,11 @@ public class MainActivity extends Activity {
 
     public int loadScheduleListData() {
 
-        String SQL = "select _id, INPUT_DATE, CONTENT_TEXT  from SCHEDULE order by INPUT_DATE desc ";
+        String date = dateText.getText().toString();
+        String date1 = date.concat(" 00:00:01");
+        String date2 = date.concat(" 23:59:59");
+
+        String SQL = "select _id, INPUT_DATE, CONTENT_TEXT from SCHEDULE WHERE INPUT_DATE BETWEEN '"+date1+"' AND '"+date2+"'";
 
         int recordCount = -1;
 
@@ -181,33 +230,6 @@ public class MainActivity extends Activity {
         startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
     }
 
-
-
-
-    private void setCalendar(){
-
-        dateBtn = (TextView)findViewById(R.id.dateText);
-        String mDateStr = dateBtn.getText().toString();
-        Calendar calendar = Calendar.getInstance();
-        Date date = new Date();
-        try {
-            date = BasicInfo.dateDayNameFormat.parse(mDateStr);
-        } catch (Exception ex) {
-            // Log.d(TAG, "Exception in parsing date : " + date);
-        }
-
-        calendar.setTime(date);
-
-        Date curDate = new Date();
-        mCalendar.setTime(curDate);
-
-        int year = mCalendar.get(Calendar.YEAR);
-        int monthOfYear = mCalendar.get(Calendar.MONTH);
-        int dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH);
-
-        dateBtn.setText(year + "- " + (monthOfYear + 1) + "- " + dayOfMonth);
-
-    }
 
     /**
      * 다른 액티비티의 응답 처리
