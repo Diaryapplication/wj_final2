@@ -2,12 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.androidtown.diaryapplication" >
 
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.WAKE_LOCK" ></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"></uses-permission>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
 
     <application
         android:allowBackup="true"
@@ -28,10 +26,10 @@
             android:label="@string/title_activity_insert_schedule"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name=".WeeklyActivity"
+            android:label="@string/title_activity_weekly" >
+        </activity>
     </application>
-
-
-
-
 
 </manifest>

@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         datePrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                mCalendar.add(Calendar.DATE,-1);
+                mCalendar.add(Calendar.DATE, -1);
                 setDateText();
                 loadScheduleListData();
             }
@@ -98,6 +98,23 @@ public class MainActivity extends Activity {
                 mCalendar.add(Calendar.DATE,1);
                 setDateText();
                 loadScheduleListData();
+            }
+        });
+
+        Button escBtn = (Button)findViewById(R.id.esc);
+        escBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        Button weeklyBtn = (Button)findViewById(R.id.week);
+        weeklyBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Log.d(TAG, "weeklyBtn clicked.");
+                Intent intent = new Intent(getApplicationContext(), WeeklyActivity.class);
+                startActivityForResult(intent, BasicInfo.REQ_WEEKLY_ACTIVITY);
             }
         });
     }
