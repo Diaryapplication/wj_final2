@@ -1,0 +1,169 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffffff">
+
+    <Button
+        android:id="@+id/weekPrevious"
+        android:text="전 주"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="일"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/sun"
+            android:text="일"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+
+        <ListView
+            android:id="@+id/sunList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="월"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/mon"
+            android:text="월"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/monList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="화"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/tue"
+            android:text="화"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/tueList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="수"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/wed"
+            android:text="수"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/wedList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="목"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/thu"
+            android:text="목"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/thuList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="금"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/fri"
+            android:text="금"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/friList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:text="토"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <Button
+            android:id="@+id/sat"
+            android:text="토"
+            android:layout_width="50dp"
+            android:layout_height="65dp" />
+        <ListView
+            android:id="@+id/satList"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:divider="#3fff"
+            >
+        </ListView>
+    </LinearLayout>
+    <Button
+        android:text="다음 주"
+        android:id="@+id/weekNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>
