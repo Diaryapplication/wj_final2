@@ -30,6 +30,10 @@
             android:name=".WeeklyActivity"
             android:label="@string/title_activity_weekly" >
         </activity>
+        <activity
+            android:name=".MonthlyActivity"
+            android:label="MonthlyActivity">
+        </activity>
     </application>
 
 </manifest>

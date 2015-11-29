@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
             }
         });
 
+
         init();
 
         // 이전 일로 넘어가는 이벤트 처리
@@ -117,14 +118,37 @@ public class MainActivity extends Activity {
                 startActivityForResult(intent, BasicInfo.REQ_WEEKLY_ACTIVITY);
             }
         });
+
+        /*Button monthlyBtn = (Button)findViewById(R.id.month);
+        monthlyBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Log.d(TAG, "monthlyBtn clicked.");
+                Intent intent_month = new Intent(getApplicationContext(), MonthlyActivity.class);
+                startActivity(intent_month);
+            }
+        });*/
+
+        Button monthlyBtn = (Button)findViewById(R.id.month);
+        monthlyBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Log.d(TAG, "monthlyBtn clicked.");
+                Intent intent_month = new Intent(getApplicationContext(), MonthlyActivity.class);
+                //startActivity(intent_month);
+                startActivityForResult(intent_month, BasicInfo.REQ_DAY_FROM_MONTHLY);
+            }
+        });
+
     }
+
     private void setDateText() {
 
         dateText = (TextView)findViewById(R.id.dateText);
         curYear = mCalendar.get(Calendar.YEAR);
         curMonth = mCalendar.get(Calendar.MONTH);
         curDay = mCalendar.get(Calendar.DATE);
-        dateText.setText(curYear + "-" + (curMonth + 1) + "-" + curDay);
+        dateText.setText( + curYear + "-" + (curMonth + 1) + "-" + curDay );
 
     }
     private void init(){
@@ -137,8 +161,6 @@ public class MainActivity extends Activity {
         int curMonth = mCalendar.get(Calendar.MONTH);
         int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
         dateText.setText(curYear + "-" + (curMonth + 1) + "-" + curDay);
-
-
 
     }
 
@@ -257,9 +279,9 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch(requestCode) {
+        switch (requestCode) {
             case BasicInfo.REQ_INSERT_ACTIVITY:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     loadScheduleListData();
                 }
 
@@ -269,7 +291,6 @@ public class MainActivity extends Activity {
                 loadScheduleListData();
 
                 break;
-
         }
     }
 }

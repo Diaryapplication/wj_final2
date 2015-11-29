@@ -31,6 +31,8 @@ public class BasicInfo {
     public static final String KEY_MEMO_ID = "MEMO_ID";
     public static final String KEY_MEMO_DATE = "MEMO_DATE";
 
+    public static final String KEY_DAY_FROM_MON = "FROM_MON";
+
 
     //========== 메모 모드 상수 ==========//
     public static final String MODE_INSERT = "MODE_INSERT";
@@ -42,6 +44,7 @@ public class BasicInfo {
     public static final int REQ_VIEW_ACTIVITY = 1001;
     public static final int REQ_INSERT_ACTIVITY = 1002;
     public static final int REQ_WEEKLY_ACTIVITY = 1003;
+    public static final int REQ_DAY_FROM_MONTHLY = 1004;
 
 
     //========== 날짜 포맷  ==========//
