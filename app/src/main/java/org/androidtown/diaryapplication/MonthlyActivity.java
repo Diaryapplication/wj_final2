@@ -57,15 +57,22 @@ public class MonthlyActivity extends Activity {
             public void onDataSelected(AdapterView parent, View v, int position, long id) {
                 // 현재 선택한 일자 정보 표시
                 MonthItem curItem = (MonthItem) monthViewAdapter.getItem(position);
-                int day = curItem.getDay();
 
                 //일자 선택하면 해당 일자 daily 페이지로 이동
+                int day = curItem.getDay();
+                int mon = curMonth;
+                int year = curYear;
 
-                Intent intent_cal = new Intent(getApplicationContext(), MainActivity.class);
-                intent_cal.putExtra("dayday", "hei");
-                startActivity(intent_cal);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
-                Log.d("CalendarMonthViewActivity", "Selected : " + day);
+                intent.putExtra(BasicInfo.KEY_DAY_FROM_MON, String.valueOf(day));
+                intent.putExtra(BasicInfo.KEY_MONTH_FROM_MON, String.valueOf(mon));
+                intent.putExtra(BasicInfo.KEY_YEAR_FROM_MON, String.valueOf(year));
+
+                setResult(RESULT_OK, intent);
+
+                Log.d("CalendarMonthViewActivity", "Selected : " + day + " " + mon + " " + year);
+                finish();
 
             }
         });

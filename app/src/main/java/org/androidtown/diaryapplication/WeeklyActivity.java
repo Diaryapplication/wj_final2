@@ -74,43 +74,43 @@ public class WeeklyActivity extends Activity {
 
         mScheduleListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo1(position);
+                viewMemo(position, mScheduleListAdapter1);
             }
         });
 
         mScheduleListView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo2(position);
+                viewMemo(position, mScheduleListAdapter2);
             }
         });
 
         mScheduleListView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo3(position);
+                viewMemo(position, mScheduleListAdapter3);
             }
         });
 
         mScheduleListView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo4(position);
+                viewMemo(position, mScheduleListAdapter4);
             }
         });
 
         mScheduleListView5.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo5(position);
+                viewMemo(position, mScheduleListAdapter5);
             }
         });
 
         mScheduleListView6.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo6(position);
+                viewMemo(position, mScheduleListAdapter6);
             }
         });
 
         mScheduleListView7.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                viewMemo7(position);
+                viewMemo(position, mScheduleListAdapter7);
             }
         });
 
@@ -123,7 +123,7 @@ public class WeeklyActivity extends Activity {
         weekPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mCalendar.add(Calendar.DATE,-13);
-                int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button sunBtn = (Button)findViewById(R.id.sun);
                 String curdayStr = String.valueOf(curDay);
                 if (curDay < 10) {
@@ -131,9 +131,30 @@ public class WeeklyActivity extends Activity {
                 }
                 sunBtn.setText(curdayStr);
                 loadScheduleListData(mScheduleListAdapter1);
+                /////////////////////
+                sunBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button monBtn = (Button)findViewById(R.id.mon);
                 String curdayStr2 = String.valueOf(curDay2);
                 if (curDay2 < 10) {
@@ -141,9 +162,30 @@ public class WeeklyActivity extends Activity {
                 }
                 monBtn.setText(curdayStr2);
                 loadScheduleListData(mScheduleListAdapter2);
+                /////////////////////
+                monBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay2;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button tueBtn = (Button)findViewById(R.id.tue);
                 String curdayStr3 = String.valueOf(curDay3);
                 if (curDay3 < 10) {
@@ -151,9 +193,30 @@ public class WeeklyActivity extends Activity {
                 }
                 tueBtn.setText(curdayStr3);
                 loadScheduleListData(mScheduleListAdapter3);
+                /////////////////////
+                tueBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay3;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button wedBtn = (Button)findViewById(R.id.wed);
                 String curdayStr4 = String.valueOf(curDay4);
                 if (curDay4 < 10) {
@@ -161,9 +224,30 @@ public class WeeklyActivity extends Activity {
                 }
                 wedBtn.setText(curdayStr4);
                 loadScheduleListData(mScheduleListAdapter4);
+                /////////////////////
+                wedBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay4;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button thuBtn = (Button)findViewById(R.id.thu);
                 String curdayStr5 = String.valueOf(curDay5);
                 if (curDay5 < 10) {
@@ -171,9 +255,30 @@ public class WeeklyActivity extends Activity {
                 }
                 thuBtn.setText(curdayStr5);
                 loadScheduleListData(mScheduleListAdapter5);
+                /////////////////////
+                thuBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay5;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button friBtn = (Button)findViewById(R.id.fri);
                 String curdayStr6 = String.valueOf(curDay6);
                 if (curDay6 < 10) {
@@ -181,9 +286,30 @@ public class WeeklyActivity extends Activity {
                 }
                 friBtn.setText(curdayStr6);
                 loadScheduleListData(mScheduleListAdapter6);
+                /////////////////////
+                friBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay6;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button satBtn = (Button)findViewById(R.id.sat);
                 String curdayStr7 = String.valueOf(curDay7);
                 if (curDay7 < 10) {
@@ -191,6 +317,27 @@ public class WeeklyActivity extends Activity {
                 }
                 satBtn.setText(curdayStr7);
                 loadScheduleListData(mScheduleListAdapter7);
+                /////////////////////
+                satBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay7;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
 
             }
@@ -201,7 +348,7 @@ public class WeeklyActivity extends Activity {
         weekNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mCalendar.add(Calendar.DATE,1);
-                int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button sunBtn = (Button)findViewById(R.id.sun);
                 String curdayStr = String.valueOf(curDay);
                 if (curDay < 10) {
@@ -209,9 +356,30 @@ public class WeeklyActivity extends Activity {
                 }
                 sunBtn.setText(curdayStr);
                 loadScheduleListData(mScheduleListAdapter1);
+                /////////////////////
+                sunBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button monBtn = (Button)findViewById(R.id.mon);
                 String curdayStr2 = String.valueOf(curDay2);
                 if (curDay2 < 10) {
@@ -219,9 +387,30 @@ public class WeeklyActivity extends Activity {
                 }
                 monBtn.setText(curdayStr2);
                 loadScheduleListData(mScheduleListAdapter2);
+                /////////////////////
+                monBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay2;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button tueBtn = (Button)findViewById(R.id.tue);
                 String curdayStr3 = String.valueOf(curDay3);
                 if (curDay3 < 10) {
@@ -229,9 +418,30 @@ public class WeeklyActivity extends Activity {
                 }
                 tueBtn.setText(curdayStr3);
                 loadScheduleListData(mScheduleListAdapter3);
+                /////////////////////
+                tueBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay3;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button wedBtn = (Button)findViewById(R.id.wed);
                 String curdayStr4 = String.valueOf(curDay4);
                 if (curDay4 < 10) {
@@ -239,9 +449,30 @@ public class WeeklyActivity extends Activity {
                 }
                 wedBtn.setText(curdayStr4);
                 loadScheduleListData(mScheduleListAdapter4);
+                /////////////////////
+                wedBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay4;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button thuBtn = (Button)findViewById(R.id.thu);
                 String curdayStr5 = String.valueOf(curDay5);
                 if (curDay5 < 10) {
@@ -249,9 +480,30 @@ public class WeeklyActivity extends Activity {
                 }
                 thuBtn.setText(curdayStr5);
                 loadScheduleListData(mScheduleListAdapter5);
+                /////////////////////
+                thuBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay5;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button friBtn = (Button)findViewById(R.id.fri);
                 String curdayStr6 = String.valueOf(curDay6);
                 if (curDay6 < 10) {
@@ -259,9 +511,30 @@ public class WeeklyActivity extends Activity {
                 }
                 friBtn.setText(curdayStr6);
                 loadScheduleListData(mScheduleListAdapter6);
+                /////////////////////
+                friBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay6;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
 
                 mCalendar.add(Calendar.DATE,1);
-                int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+                final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
                 Button satBtn = (Button)findViewById(R.id.sat);
                 String curdayStr7 = String.valueOf(curDay7);
                 if (curDay7 < 10) {
@@ -269,6 +542,27 @@ public class WeeklyActivity extends Activity {
                 }
                 satBtn.setText(curdayStr7);
                 loadScheduleListData(mScheduleListAdapter7);
+                /////////////////////
+                satBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                        int dayday = curDay7;
+                        int monmon = mCalendar.get(Calendar.MONTH);
+                        int yearyear = mCalendar.get(Calendar.YEAR);
+
+                        intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                        intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                        intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                        //intent.putExtra("111", "heyeheheh");
+                        Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                });
+                ////////////////////
             }
         });
 
@@ -284,13 +578,13 @@ public class WeeklyActivity extends Activity {
     }
 
     public void openDatabase() {
-
+        /*
         // open database
-        if (mDatabase != null) {
+        if (mDatabase != null && mDatabase.open()) {
             mDatabase.close();
             mDatabase = null;
         }
-
+        */
 
         mDatabase = ScheduleDatabase.getInstance(this);
         boolean isOpen = mDatabase.open();
@@ -311,7 +605,7 @@ public class WeeklyActivity extends Activity {
 
         if (dayOfWeek == 1){
 
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -319,9 +613,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -329,9 +644,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -339,9 +675,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -349,9 +706,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -359,9 +737,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -369,9 +768,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -379,12 +799,33 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
         }
 
         else if (dayOfWeek==2){
 
             mCalendar.add(Calendar.DATE,-1);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -392,9 +833,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -402,9 +864,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -412,9 +895,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -422,9 +926,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -432,9 +957,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -442,9 +988,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -452,11 +1019,32 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
         }
         else if (dayOfWeek==3){
             mCalendar.add(Calendar.DATE,-2);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -464,9 +1052,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -474,9 +1083,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -484,9 +1114,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -494,9 +1145,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -504,9 +1176,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -514,9 +1207,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -524,10 +1238,31 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
         }
         else if (dayOfWeek==4){
             mCalendar.add(Calendar.DATE,-3);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -535,9 +1270,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -545,9 +1301,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -555,9 +1332,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -565,9 +1363,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -575,9 +1394,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -585,9 +1425,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -595,11 +1456,32 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
         }
         else if (dayOfWeek==5){
             mCalendar.add(Calendar.DATE,-4);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -607,9 +1489,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -617,9 +1520,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -627,9 +1551,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -637,9 +1582,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -647,9 +1613,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -657,9 +1644,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -667,11 +1675,32 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
         }
         else if (dayOfWeek==6){
             mCalendar.add(Calendar.DATE,-5);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -679,9 +1708,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -689,9 +1739,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -699,9 +1770,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -709,9 +1801,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -719,9 +1832,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -729,9 +1863,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -739,11 +1894,32 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
         }
         else if (dayOfWeek==7){
             mCalendar.add(Calendar.DATE,-6);
-            int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button sunBtn = (Button)findViewById(R.id.sun);
             String curdayStr = String.valueOf(curDay);
             if (curDay < 10) {
@@ -751,9 +1927,30 @@ public class WeeklyActivity extends Activity {
             }
             sunBtn.setText(curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
+            /////////////////////
+            sunBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay2 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button monBtn = (Button)findViewById(R.id.mon);
             String curdayStr2 = String.valueOf(curDay2);
             if (curDay2 < 10) {
@@ -761,9 +1958,30 @@ public class WeeklyActivity extends Activity {
             }
             monBtn.setText(curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
+            /////////////////////
+            monBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay2;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay3 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button tueBtn = (Button)findViewById(R.id.tue);
             String curdayStr3 = String.valueOf(curDay3);
             if (curDay3 < 10) {
@@ -771,9 +1989,30 @@ public class WeeklyActivity extends Activity {
             }
             tueBtn.setText(curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
+            /////////////////////
+            tueBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay3;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay4 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button wedBtn = (Button)findViewById(R.id.wed);
             String curdayStr4 = String.valueOf(curDay4);
             if (curDay4 < 10) {
@@ -781,9 +2020,30 @@ public class WeeklyActivity extends Activity {
             }
             wedBtn.setText(curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
+            /////////////////////
+            wedBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay4;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay5 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button thuBtn = (Button)findViewById(R.id.thu);
             String curdayStr5 = String.valueOf(curDay5);
             if (curDay5 < 10) {
@@ -791,9 +2051,30 @@ public class WeeklyActivity extends Activity {
             }
             thuBtn.setText(curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
+            /////////////////////
+            thuBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay5;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay6 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button friBtn = (Button)findViewById(R.id.fri);
             String curdayStr6 = String.valueOf(curDay6);
             if (curDay6 < 10) {
@@ -801,9 +2082,30 @@ public class WeeklyActivity extends Activity {
             }
             friBtn.setText(curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
+            /////////////////////
+            friBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay6;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
             mCalendar.add(Calendar.DATE,1);
-            int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
+            final int curDay7 = mCalendar.get(Calendar.DAY_OF_MONTH);
             Button satBtn = (Button)findViewById(R.id.sat);
             String curdayStr7 = String.valueOf(curDay7);
             if (curDay7 < 10) {
@@ -811,26 +2113,34 @@ public class WeeklyActivity extends Activity {
             }
             satBtn.setText(curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
+            /////////////////////
+            satBtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    int dayday = curDay7;
+                    int monmon = mCalendar.get(Calendar.MONTH);
+                    int yearyear = mCalendar.get(Calendar.YEAR);
+
+                    intent.putExtra(BasicInfo.KEY_DAY_FROM_WEEK, String.valueOf(dayday));
+                    intent.putExtra(BasicInfo.KEY_MONTH_FROM_WEEK, String.valueOf(monmon));
+                    intent.putExtra(BasicInfo.KEY_YEAR_FROM_WEEK, String.valueOf(yearyear));
+
+                    //intent.putExtra("111", "heyeheheh");
+                    Log.d("WeeklyActivity", "Selected : " + dayday + " " + monmon + " " + yearyear);
+
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+            ////////////////////
 
         }
     }
 
 
-
-    private void viewMemo1(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter1.getItem(position);
-
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
-
-    private void viewMemo2(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter2.getItem(position);
+    private void viewMemo(int position,ScheduleListAdapter mScheduleListAdapter) {
+        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter.getItem(position);
 
         Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
         intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
@@ -840,71 +2150,26 @@ public class WeeklyActivity extends Activity {
 
         startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
     }
-    private void viewMemo3(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter3.getItem(position);
 
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
-    private void viewMemo4(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter4.getItem(position);
-
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
-    private void viewMemo5(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter5.getItem(position);
-
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
-    private void viewMemo6(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter6.getItem(position);
-
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
-    private void viewMemo7(int position) {
-        ScheduleListItem item = (ScheduleListItem)mScheduleListAdapter7.getItem(position);
-
-        Intent intent = new Intent(getApplicationContext(), InsertScheduleActivity.class);
-        intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-        intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-        intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-        intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
-
-        startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
-    }
 
     public int loadScheduleListData(ScheduleListAdapter mScheduleListAdapter) {
 
         int curYear = mCalendar.get(Calendar.YEAR);
         int curMonth = mCalendar.get(Calendar.MONTH);
+        curMonth++;
+        String curmonthStr = String.valueOf(curMonth);
+        if (curMonth < 10) {
+            curmonthStr = "0" + curmonthStr;
+        }
         int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+        String curdayStr = String.valueOf(curDay);
+        if (curDay < 10) {
+            curdayStr = "0" + curdayStr;
+        }
 
         String date = String.valueOf(curYear);
-        String date1 = date.concat("-" + String.valueOf(curMonth+1));
-        String date2 = date1.concat("-" + String.valueOf(curDay));
+        String date1 = date.concat("-" + curmonthStr);
+        String date2 = date1.concat("-" + curdayStr);
 
         String date3 = date2.concat(" 00:00:01");
         String date4 = date2.concat(" 23:59:59");
@@ -977,7 +2242,5 @@ public class WeeklyActivity extends Activity {
 
         }
     }
-
-
 
 }

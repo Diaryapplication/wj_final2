@@ -31,8 +31,19 @@ public class BasicInfo {
     public static final String KEY_MEMO_ID = "MEMO_ID";
     public static final String KEY_MEMO_DATE = "MEMO_DATE";
 
-    public static final String KEY_DAY_FROM_MON = "FROM_MON";
+    public static final String KEY_DAY_FROM_MON = "DAY_FROM_MONTHLY";
+    public static final String KEY_MONTH_FROM_MON = "MONTH_FROM_MONTHLY";
+    public static final String KEY_YEAR_FROM_MON = "YEAR_FROM_MONTHLY";
 
+    public static final String KEY_DAY_FROM_WEEK = "DAY_FROM_WEEKLY";
+    public static final String KEY_MONTH_FROM_WEEK = "MONTH_FROM_WEEKLY";
+    public static final String KEY_YEAR_FROM_WEEK = "YEAR_FROM_WEEKLY";
+
+    /*
+    public static final int KEY_DAY_FROM_MON = 0;
+    public static final int KEY_MONTH_FROM_MON = 0;
+    public static final int KEY_YEAR_FROM_MON = 0;
+    */
 
     //========== 메모 모드 상수 ==========//
     public static final String MODE_INSERT = "MODE_INSERT";

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.androidtown.diaryapplication.db.ScheduleDatabase;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.util.Calendar;
@@ -119,27 +120,16 @@ public class MainActivity extends Activity {
             }
         });
 
-        /*Button monthlyBtn = (Button)findViewById(R.id.month);
-        monthlyBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                Log.d(TAG, "monthlyBtn clicked.");
-                Intent intent_month = new Intent(getApplicationContext(), MonthlyActivity.class);
-                startActivity(intent_month);
-            }
-        });*/
 
         Button monthlyBtn = (Button)findViewById(R.id.month);
         monthlyBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Log.d(TAG, "monthlyBtn clicked.");
-                Intent intent_month = new Intent(getApplicationContext(), MonthlyActivity.class);
-                //startActivity(intent_month);
-                startActivityForResult(intent_month, BasicInfo.REQ_DAY_FROM_MONTHLY);
+                Intent intent = new Intent(getApplicationContext(), MonthlyActivity.class);
+                startActivityForResult(intent, BasicInfo.REQ_DAY_FROM_MONTHLY);
             }
         });
-
     }
 
     private void setDateText() {
@@ -147,8 +137,18 @@ public class MainActivity extends Activity {
         dateText = (TextView)findViewById(R.id.dateText);
         curYear = mCalendar.get(Calendar.YEAR);
         curMonth = mCalendar.get(Calendar.MONTH);
+        curMonth++;
+        String curmonthStr = String.valueOf(curMonth);
+        if (curMonth < 10) {
+            curmonthStr = "0" + curmonthStr;
+        }
         curDay = mCalendar.get(Calendar.DATE);
-        dateText.setText( + curYear + "-" + (curMonth + 1) + "-" + curDay );
+        int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+        String curdayStr = String.valueOf(curDay);
+        if (curDay < 10) {
+            curdayStr = "0" + curdayStr;
+        }
+        dateText.setText( + curYear + "-" + curmonthStr + "-" + curdayStr );
 
     }
     private void init(){
@@ -159,8 +159,18 @@ public class MainActivity extends Activity {
 
         int curYear = mCalendar.get(Calendar.YEAR);
         int curMonth = mCalendar.get(Calendar.MONTH);
+        curMonth++;
+        String curmonthStr = String.valueOf(curMonth);
+        if (curMonth < 10) {
+            curmonthStr = "0" + curmonthStr;
+        }
         int curDay = mCalendar.get(Calendar.DAY_OF_MONTH);
-        dateText.setText(curYear + "-" + (curMonth + 1) + "-" + curDay);
+        String curdayStr = String.valueOf(curDay);
+        if (curDay < 10) {
+            curdayStr = "0" + curdayStr;
+        }
+
+        dateText.setText(curYear + "-" + curmonthStr + "-" + curdayStr);
 
     }
 
@@ -276,6 +286,7 @@ public class MainActivity extends Activity {
     /**
      * 다른 액티비티의 응답 처리
      */
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -290,6 +301,43 @@ public class MainActivity extends Activity {
             case BasicInfo.REQ_VIEW_ACTIVITY:
                 loadScheduleListData();
 
+                break;
+
+            case BasicInfo.REQ_DAY_FROM_MONTHLY:
+                if (resultCode == RESULT_OK && data != null) {
+
+                    Bundle mBundle = data.getExtras();
+                    String day_now = mBundle.getString(BasicInfo.KEY_DAY_FROM_MON);
+                    String month_now = mBundle.getString(BasicInfo.KEY_MONTH_FROM_MON);
+                    String year_now = mBundle.getString(BasicInfo.KEY_YEAR_FROM_MON);
+
+                    mCalendar.set(Calendar.DATE, Integer.parseInt(day_now));
+                    mCalendar.set(Calendar.MONTH, Integer.parseInt(month_now));
+                    mCalendar.set(Calendar.YEAR, Integer.parseInt(year_now));
+
+                    setDateText();
+                    loadScheduleListData();
+                }
+                break;
+            case BasicInfo.REQ_WEEKLY_ACTIVITY:
+                if (resultCode == RESULT_OK && data != null) {
+
+                    Bundle mBundle2 = data.getExtras();
+
+                    String day_now2 = mBundle2.getString(BasicInfo.KEY_DAY_FROM_WEEK);
+                    String month_now2 = mBundle2.getString(BasicInfo.KEY_MONTH_FROM_WEEK);
+                    String year_now2 = mBundle2.getString(BasicInfo.KEY_YEAR_FROM_WEEK);
+
+                    Log.d("MainActivity", "Come back from weekly : " +   day_now2 + " " + month_now2 + " " + year_now2);
+
+                    mCalendar.set(Calendar.DATE, Integer.parseInt(day_now2));
+                    mCalendar.set(Calendar.MONTH, Integer.parseInt(month_now2));
+                    mCalendar.set(Calendar.YEAR, Integer.parseInt(year_now2));
+
+                    setDateText();
+                    loadScheduleListData();
+
+                }
                 break;
         }
     }
