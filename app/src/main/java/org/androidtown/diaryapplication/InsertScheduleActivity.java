@@ -213,20 +213,6 @@ public class InsertScheduleActivity extends Activity {
             }
         });
 
-        /*Button alldayBtn = (Button)findViewById(R.id.allday);
-        alldayBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.d(TAG, "newMemoBtn clicked.");
-                addTimeBtn.setVisibility(View.GONE);
-            }
-        });*/
-
-        findViewById(R.id.allday).setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v){
-                allDayChekced(v);
-            }
-        });
-
         Date curDate = new Date();
         mCalendar.setTime(curDate);
 
@@ -265,17 +251,6 @@ public class InsertScheduleActivity extends Activity {
 
 
     }
-
-    public void allDayChekced(View v){
-        CheckBox ch1 = (CheckBox)findViewById(R.id.allday);
-
-        String allDayText = "";
-        if(ch1.isChecked()){
-            addTimeBtn.setVisibility(View.GONE);
-            allDayText = "All Day";
-        }
-    }
-
 
     private void setScheduleDate(String dateStr) {
         Log.d(TAG, "setScheduleDate() called : " + dateStr);

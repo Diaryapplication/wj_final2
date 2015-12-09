@@ -129,7 +129,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay < 10) {
                     curdayStr = "0" + curdayStr;
                 }
-                sunBtn.setText(curdayStr);
+                sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
                 loadScheduleListData(mScheduleListAdapter1);
                 /////////////////////
                 sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +160,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay2 < 10) {
                     curdayStr2 = "0" + curdayStr2;
                 }
-                monBtn.setText(curdayStr2);
+                monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
                 loadScheduleListData(mScheduleListAdapter2);
                 /////////////////////
                 monBtn.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +191,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay3 < 10) {
                     curdayStr3 = "0" + curdayStr3;
                 }
-                tueBtn.setText(curdayStr3);
+                tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
                 loadScheduleListData(mScheduleListAdapter3);
                 /////////////////////
                 tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -222,7 +222,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay4 < 10) {
                     curdayStr4 = "0" + curdayStr4;
                 }
-                wedBtn.setText(curdayStr4);
+                wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
                 loadScheduleListData(mScheduleListAdapter4);
                 /////////////////////
                 wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +253,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay5 < 10) {
                     curdayStr5 = "0" + curdayStr5;
                 }
-                thuBtn.setText(curdayStr5);
+                thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
                 loadScheduleListData(mScheduleListAdapter5);
                 /////////////////////
                 thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -284,7 +284,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay6 < 10) {
                     curdayStr6 = "0" + curdayStr6;
                 }
-                friBtn.setText(curdayStr6);
+                friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
                 loadScheduleListData(mScheduleListAdapter6);
                 /////////////////////
                 friBtn.setOnClickListener(new View.OnClickListener() {
@@ -315,7 +315,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay7 < 10) {
                     curdayStr7 = "0" + curdayStr7;
                 }
-                satBtn.setText(curdayStr7);
+                satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
                 loadScheduleListData(mScheduleListAdapter7);
                 /////////////////////
                 satBtn.setOnClickListener(new View.OnClickListener() {
@@ -354,7 +354,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay < 10) {
                     curdayStr = "0" + curdayStr;
                 }
-                sunBtn.setText(curdayStr);
+                sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
                 loadScheduleListData(mScheduleListAdapter1);
                 /////////////////////
                 sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -385,7 +385,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay2 < 10) {
                     curdayStr2 = "0" + curdayStr2;
                 }
-                monBtn.setText(curdayStr2);
+                monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
                 loadScheduleListData(mScheduleListAdapter2);
                 /////////////////////
                 monBtn.setOnClickListener(new View.OnClickListener() {
@@ -416,7 +416,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay3 < 10) {
                     curdayStr3 = "0" + curdayStr3;
                 }
-                tueBtn.setText(curdayStr3);
+                tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
                 loadScheduleListData(mScheduleListAdapter3);
                 /////////////////////
                 tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -447,7 +447,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay4 < 10) {
                     curdayStr4 = "0" + curdayStr4;
                 }
-                wedBtn.setText(curdayStr4);
+                wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
                 loadScheduleListData(mScheduleListAdapter4);
                 /////////////////////
                 wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -478,7 +478,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay5 < 10) {
                     curdayStr5 = "0" + curdayStr5;
                 }
-                thuBtn.setText(curdayStr5);
+                thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
                 loadScheduleListData(mScheduleListAdapter5);
                 /////////////////////
                 thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -509,7 +509,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay6 < 10) {
                     curdayStr6 = "0" + curdayStr6;
                 }
-                friBtn.setText(curdayStr6);
+                friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
                 loadScheduleListData(mScheduleListAdapter6);
                 /////////////////////
                 friBtn.setOnClickListener(new View.OnClickListener() {
@@ -540,7 +540,7 @@ public class WeeklyActivity extends Activity {
                 if (curDay7 < 10) {
                     curdayStr7 = "0" + curdayStr7;
                 }
-                satBtn.setText(curdayStr7);
+                satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
                 loadScheduleListData(mScheduleListAdapter7);
                 /////////////////////
                 satBtn.setOnClickListener(new View.OnClickListener() {
@@ -611,7 +611,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -642,7 +642,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -673,7 +673,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -704,7 +704,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -735,7 +735,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -766,7 +766,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -797,7 +797,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -831,7 +831,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -862,7 +862,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -893,7 +893,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -924,7 +924,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -955,7 +955,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -986,7 +986,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -1017,7 +1017,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -1050,7 +1050,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -1081,7 +1081,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -1112,7 +1112,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -1143,7 +1143,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -1174,7 +1174,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -1205,7 +1205,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -1236,7 +1236,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -1268,7 +1268,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -1299,7 +1299,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -1330,7 +1330,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -1361,7 +1361,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -1392,7 +1392,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -1423,7 +1423,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -1454,7 +1454,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -1487,7 +1487,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -1518,7 +1518,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -1549,7 +1549,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -1580,7 +1580,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -1611,7 +1611,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -1642,7 +1642,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -1673,7 +1673,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -1706,7 +1706,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -1737,7 +1737,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -1768,7 +1768,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -1799,7 +1799,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -1830,7 +1830,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -1861,7 +1861,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -1892,7 +1892,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {
@@ -1925,7 +1925,7 @@ public class WeeklyActivity extends Activity {
             if (curDay < 10) {
                 curdayStr = "0" + curdayStr;
             }
-            sunBtn.setText(curdayStr);
+            sunBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr);
             loadScheduleListData(mScheduleListAdapter1);
             /////////////////////
             sunBtn.setOnClickListener(new View.OnClickListener() {
@@ -1956,7 +1956,7 @@ public class WeeklyActivity extends Activity {
             if (curDay2 < 10) {
                 curdayStr2 = "0" + curdayStr2;
             }
-            monBtn.setText(curdayStr2);
+            monBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr2);
             loadScheduleListData(mScheduleListAdapter2);
             /////////////////////
             monBtn.setOnClickListener(new View.OnClickListener() {
@@ -1987,7 +1987,7 @@ public class WeeklyActivity extends Activity {
             if (curDay3 < 10) {
                 curdayStr3 = "0" + curdayStr3;
             }
-            tueBtn.setText(curdayStr3);
+            tueBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr3);
             loadScheduleListData(mScheduleListAdapter3);
             /////////////////////
             tueBtn.setOnClickListener(new View.OnClickListener() {
@@ -2018,7 +2018,7 @@ public class WeeklyActivity extends Activity {
             if (curDay4 < 10) {
                 curdayStr4 = "0" + curdayStr4;
             }
-            wedBtn.setText(curdayStr4);
+            wedBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr4);
             loadScheduleListData(mScheduleListAdapter4);
             /////////////////////
             wedBtn.setOnClickListener(new View.OnClickListener() {
@@ -2049,7 +2049,7 @@ public class WeeklyActivity extends Activity {
             if (curDay5 < 10) {
                 curdayStr5 = "0" + curdayStr5;
             }
-            thuBtn.setText(curdayStr5);
+            thuBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr5);
             loadScheduleListData(mScheduleListAdapter5);
             /////////////////////
             thuBtn.setOnClickListener(new View.OnClickListener() {
@@ -2080,7 +2080,7 @@ public class WeeklyActivity extends Activity {
             if (curDay6 < 10) {
                 curdayStr6 = "0" + curdayStr6;
             }
-            friBtn.setText(curdayStr6);
+            friBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr6);
             loadScheduleListData(mScheduleListAdapter6);
             /////////////////////
             friBtn.setOnClickListener(new View.OnClickListener() {
@@ -2111,7 +2111,7 @@ public class WeeklyActivity extends Activity {
             if (curDay7 < 10) {
                 curdayStr7 = "0" + curdayStr7;
             }
-            satBtn.setText(curdayStr7);
+            satBtn.setText((mCalendar.get(Calendar.MONTH)+1) + "/" + curdayStr7);
             loadScheduleListData(mScheduleListAdapter7);
             /////////////////////
             satBtn.setOnClickListener(new View.OnClickListener() {

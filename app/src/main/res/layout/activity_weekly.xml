@@ -20,7 +20,7 @@
         <Button
             android:id="@+id/sun"
             android:text="일"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
 
         <ListView
@@ -43,7 +43,7 @@
         <Button
             android:id="@+id/mon"
             android:text="월"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/monList"
@@ -64,7 +64,7 @@
         <Button
             android:id="@+id/tue"
             android:text="화"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/tueList"
@@ -85,7 +85,7 @@
         <Button
             android:id="@+id/wed"
             android:text="수"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/wedList"
@@ -106,7 +106,7 @@
         <Button
             android:id="@+id/thu"
             android:text="목"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/thuList"
@@ -127,7 +127,7 @@
         <Button
             android:id="@+id/fri"
             android:text="금"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/friList"
@@ -148,7 +148,7 @@
         <Button
             android:id="@+id/sat"
             android:text="토"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp" />
         <ListView
             android:id="@+id/satList"

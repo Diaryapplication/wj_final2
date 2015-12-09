@@ -55,7 +55,7 @@ public class CalendarMonthView extends GridView {
 	* 속성 초기화
 	*/
 	private void init() {
-		setBackgroundColor(Color.GRAY);
+		//setBackgroundColor(Color.GRAY);
         setVerticalSpacing(1);
         setHorizontalSpacing(1);
         setStretchMode(GridView.STRETCH_COLUMN_WIDTH);

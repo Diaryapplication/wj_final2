@@ -220,7 +220,7 @@ public class CalendarMonthAdapter extends BaseAdapter {
 		if (position == getSelectedPosition()) {
 			itemView.setBackgroundColor(Color.YELLOW);
 		} else {
-			itemView.setBackgroundColor(Color.WHITE);
+			itemView.setBackgroundColor(0x70d5d5d5);
 			Date curDate = new Date();
 			Calendar mmCalendar = Calendar.getInstance();
 			mmCalendar.setTime(curDate);
@@ -239,16 +239,21 @@ public class CalendarMonthAdapter extends BaseAdapter {
 				curmonthStr = "0" + curmonthStr;
 			}
 
-			String date = String.valueOf(curYear);
+			//String date = String.valueOf(curYear);
+			String date = String.valueOf(mCalendar.get(Calendar.YEAR));
+			Log.d("CalendarMonthViewActivity", "curYear : "+date);
+			//String date1 = date.concat("-" + curmonthStr);
+
 			String date1 = date.concat("-" + curmonthStr);
+
+			Log.d("CalendarMonthViewActivity", "curmonthStr : "+date1);
 			String date2 = date1.concat("-" + "01");
+			Log.d("CalendarMonthViewActivity", "date2 : "+date2);
 			String date22 = date1.concat("-" + "31");
+			Log.d("CalendarMonthViewActivity", "date22 : "+date22);
 
 			String date3 = date2.concat(" 00:00:01");
 			String date4 = date22.concat(" 23:59:59");
-
-			Log.d("CalendarMonthViewActivity", "start date : "+date3);
-			Log.d("CalendarMonthViewActivity", "end date : "+date4);
 
 			String SQL = "select INPUT_DATE from SCHEDULE WHERE INPUT_DATE BETWEEN '"+date3+"' AND '"+date4+"'";
 
@@ -278,18 +283,33 @@ public class CalendarMonthAdapter extends BaseAdapter {
 
 					StringTokenizer st = new StringTokenizer(dateStr,"-");
 					String dateS = null;
-					while(st.hasMoreTokens()) dateS = st.nextToken();
+					String dateS2 = null;
+					String dateS3 = null;
+					dateS = st.nextToken();
+					if(st.hasMoreTokens()) dateS2 = st.nextToken();
+					if(st.hasMoreTokens()) dateS3 = st.nextToken();
 
 					Log.d("CalendarMonthViewActivity", "dateStr : "+dateS);
+					Log.d("CalendarMonthViewActivity", "dateStr2 : "+dateS2);
+					Log.d("CalendarMonthViewActivity", "dateStr3 : "+dateS3);
 
-					int datePlan = Integer.parseInt(dateS);
-					int planPosition = firstDay + datePlan - 2;
+					int datePlan = Integer.parseInt(dateS3);
+					//int planPosition = firstDay + datePlan - 1;
+					int planPosition = datePlan;
+					int monthPlan = Integer.parseInt(dateS2);
+					int yearPlan = Integer.parseInt(dateS);
 
+					Log.d("CalendarMonthViewActivity", "firstday : "+firstDay);
 					Log.d("CalendarMonthViewActivity", "planPosition : "+planPosition);
+					Log.d("CalendarMonthViewActivity", "mcalendar.month : "+mCalendar.get(Calendar.MONTH));
+					Log.d("CalendarMonthViewActivity", "curmonth : "+ curMonth);
+					Log.d("CalendarMonthViewActivity", "curmonthstr : "+ curmonthStr);
 
 					if(itemView.getItem().getDay() == planPosition){
-						itemView.setBackgroundColor(Color.YELLOW);
+
+						itemView.setBackgroundColor(0xccffffff);
 					}
+
 				}
 				catch (ParseException e) {
 					e.printStackTrace();
